@@ -1,8 +1,13 @@
 import _ from 'lodash';
 import './reset.css'
 import './style.css';
-// import { component } from "./initial"
-// import Main from './main.jpg';
+import { aboutTab } from "./about"
+import { contactsTab } from "./contacts"
+import { locationsTab } from "./locations"
+import { menuTab } from "./menu"
+const menuT = () => document.getElementById("menu");
+const elementId = (e) => document.getElementById(`${e}Id`);
+let appendElement = true;
 
 const render = (() => {
     // select element
@@ -18,9 +23,6 @@ const render = (() => {
     const instructions = document.createElement("div");
     const insHeading = document.createElement("h1");
     const insBody = document.createElement("div");
-    const menu = document.createElement("div");
-    const menuHeading = document.createElement("h1");
-    const menuContent = document.createElement("div");
     const bottomElement = document.createElement("footer");
     const footerHeading = document.createElement("h1");
 
@@ -35,13 +37,14 @@ const render = (() => {
     instructions.classList.add("instructions");
     insHeading.classList.add("insHeading");
     insBody.classList.add("insBody");
-    menu.classList.add("menu");
-    menuHeading.classList.add("menuHeading");
-    menuContent.classList.add("menuContent");
     bottomElement.classList.add("footer");
     footerHeading.classList.add("footerHeading");
 
     // organise and content to elements
+
+    mainElement.appendChild(topElement);
+    mainElement.appendChild(instructions);
+    mainElement.appendChild(bottomElement);
 
     // topElement
     headElement.appendChild(nav);
@@ -49,16 +52,11 @@ const render = (() => {
     topElement.appendChild(headElement);
     topElement.appendChild(welcome)
 
-    mainElement.appendChild(topElement);
-    mainElement.appendChild(instructions);
-    mainElement.appendChild(menu);
-    mainElement.appendChild(bottomElement);
-
     navbar.innerHTML =` 
-                <li>Menu</li>
-                <li>Locations</li>
-                <li>About</li>
-                <li>Contacts</li>
+                <li><a id="menu">Menu</a></li>
+                <li><a href="#" id="locationso>Locations</a></li>
+                <li><a href="#" id=">About</a></li>
+                <li><a href="#" id=">Contacts</a></li>
                 <li class="order">Order online</li>`;
     nav.appendChild(navbar);
 
@@ -68,22 +66,36 @@ const render = (() => {
     welcome.appendChild(titleName);
     welcome.appendChild(description);
 
-    // instructions
-    insHeading.innerHTML = "HOW TO ORDER AT MICHI";
-
-    instructions.appendChild(insHeading);
-
-    // menu
-    menuHeading.innerHTML = "RAMEN MENU";
-
-    menu.appendChild(menuHeading);
-
     // bottomElement
     footerHeading.innerHTML = "FOOTER";
     
     bottomElement.appendChild(footerHeading);
 
+    // add events
+        // menu
+    menuT().addEventListener("click", () => {
+        if (appendElement === true) {
+            mainElement.insertBefore(menuTab(), bottomElement);
+            scrollToDiv();
+        }
+        appendElement = false
+    });
+
+        // contacts
+    menuT().addEventListener("click", () => {
+        if (appendElement === true) {
+            mainElement.insertBefore(menuTab(), bottomElement);
+            scrollToDiv();
+        }
+        appendElement = false
+    });
+
+    console.log(appendElement);
+    
     return mainElement();
 });
 
+const scrollToDiv = (() => {
+    window.scrollTo(0, elementId("menu").offsetTop);
+})
 render();
