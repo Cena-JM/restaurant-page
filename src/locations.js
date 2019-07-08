@@ -1,8 +1,10 @@
-const loactionsTab = (() => {
+const locationsTab = (() => {
     // create elements
     const locations = document.createElement("div");
     const locationsHeading = document.createElement("h1");
     const locationsContent = document.createElement("div");
+
+    locations.setAttribute("id", "locationsId");
 
     // assign classes elements
     locations.classList.add("locations");
@@ -17,4 +19,4 @@ const loactionsTab = (() => {
     return locations;
 });
 
-export { loactionsTab }
+export { locationsTab }

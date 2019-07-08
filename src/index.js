@@ -1,10 +1,10 @@
 import _ from 'lodash';
-import './reset.css'
+import './reset.css';
 import './style.css';
-import { aboutTab } from "./about"
-import { contactsTab } from "./contacts"
-import { locationsTab } from "./locations"
-import { menuTab } from "./menu"
+import { aboutTab } from "./about";
+import { contactsTab } from "./contacts";
+import { locationsTab } from "./locations";
+import { menuTab } from "./menu";
 const tab = (e) => document.getElementById(`${e}`);
 const elementId = (e) => document.getElementById(`${e}Id`);
 let appendedElement = 0;
@@ -50,7 +50,7 @@ const render = (() => {
     headElement.appendChild(nav);
 
     topElement.appendChild(headElement);
-    topElement.appendChild(welcome)
+    topElement.appendChild(welcome);
 
     navbar.innerHTML =` 
                 <li><a href="#menuId" id="menu">Menu</a></li>
@@ -108,6 +108,17 @@ const render = (() => {
             mainElement.insertBefore(aboutTab(), bottomElement);
         }
         appendedElement = elementId("about");
+    });
+
+    // locations
+    tab("locations").addEventListener("click", () => {
+        if (appendedElement !== elementId("locations")) {
+            if (appendedElement !== 0){
+                mainElement.removeChild(appendedElement);
+            }
+            mainElement.insertBefore(locationsTab(), bottomElement);
+        }
+        appendedElement = elementId("locations");
     });
 
     return mainElement;
