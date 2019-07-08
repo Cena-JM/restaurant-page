@@ -5,14 +5,14 @@ import { aboutTab } from "./about"
 import { contactsTab } from "./contacts"
 import { locationsTab } from "./locations"
 import { menuTab } from "./menu"
-const menuT = () => document.getElementById("menu");
+const tab = (e) => document.getElementById(`${e}`);
 const elementId = (e) => document.getElementById(`${e}Id`);
-let appendElement = true;
+let appendedElement = 0;
 
 const render = (() => {
-    // select element
+//     // select element
     const mainElement = document.querySelector("#content");
-    // create elements
+//     // create elements
     const topElement = document.createElement("div");
     const headElement = document.createElement("header");
     const nav = document.createElement("nav");
@@ -26,7 +26,7 @@ const render = (() => {
     const bottomElement = document.createElement("footer");
     const footerHeading = document.createElement("h1");
 
-    // assign classes elements
+//     // assign classes elements
     topElement.classList.add("top-section");
     headElement.classList.add("banner");
     nav.classList.add("nav");
@@ -40,23 +40,23 @@ const render = (() => {
     bottomElement.classList.add("footer");
     footerHeading.classList.add("footerHeading");
 
-    // organise and content to elements
+//     // organise and content to elements
 
     mainElement.appendChild(topElement);
     mainElement.appendChild(instructions);
     mainElement.appendChild(bottomElement);
 
-    // topElement
+//     // topElement
     headElement.appendChild(nav);
 
     topElement.appendChild(headElement);
     topElement.appendChild(welcome)
 
     navbar.innerHTML =` 
-                <li><a id="menu">Menu</a></li>
-                <li><a href="#" id="locationso>Locations</a></li>
-                <li><a href="#" id=">About</a></li>
-                <li><a href="#" id=">Contacts</a></li>
+                <li><a href="#menuId" id="menu">Menu</a></li>
+                <li><a href="#locationsId" id="locations">Locations</a></li>
+                <li><a href="#aboutId" id="about">About</a></li>
+                <li><a href="#contactsId" id="contacts">Contacts</a></li>
                 <li class="order">Order online</li>`;
     nav.appendChild(navbar);
 
@@ -66,6 +66,11 @@ const render = (() => {
     welcome.appendChild(titleName);
     welcome.appendChild(description);
 
+    // instructions
+    insHeading.innerHTML = "HOW TO ORDER AT MICHI";
+
+    instructions.appendChild(insHeading);
+
     // bottomElement
     footerHeading.innerHTML = "FOOTER";
     
@@ -73,29 +78,28 @@ const render = (() => {
 
     // add events
         // menu
-    menuT().addEventListener("click", () => {
-        if (appendElement === true) {
+    tab("menu").addEventListener("click", () => {
+        if (appendedElement !== elementId("menu")) {
+            if (appendedElement !== 0){
+                mainElement.removeChild(appendedElement);
+            }
             mainElement.insertBefore(menuTab(), bottomElement);
-            scrollToDiv();
         }
-        appendElement = false
+        appendedElement = elementId("menu")
     });
 
         // contacts
-    menuT().addEventListener("click", () => {
-        if (appendElement === true) {
-            mainElement.insertBefore(menuTab(), bottomElement);
-            scrollToDiv();
+    tab("contacts").addEventListener("click", () => {
+        if (appendedElement !== elementId("contacts")) {
+            if (appendedElement !== 0){
+                mainElement.removeChild(appendedElement);
+            }
+            mainElement.insertBefore(contactsTab(), bottomElement);
         }
-        appendElement = false
+        appendedElement = elementId("contacts");
     });
-
-    console.log(appendElement);
     
-    return mainElement();
+    return mainElement;
 });
 
-const scrollToDiv = (() => {
-    window.scrollTo(0, elementId("menu").offsetTop);
-})
 render();
