@@ -99,6 +99,17 @@ const render = (() => {
         appendedElement = elementId("contacts");
     });
     
+        // about
+    tab("about").addEventListener("click", () => {
+        if (appendedElement !== elementId("about")) {
+            if (appendedElement !== 0){
+                mainElement.removeChild(appendedElement);
+            }
+            mainElement.insertBefore(aboutTab(), bottomElement);
+        }
+        appendedElement = elementId("about");
+    });
+
     return mainElement;
 });
 

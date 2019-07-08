@@ -4,6 +4,8 @@ const aboutTab = (() => {
     const aboutHeading = document.createElement("h1");
     const aboutContent = document.createElement("div");
 
+    about.setAttribute("id", "aboutId");
+
     // assign classes elements
     about.classList.add("about");
     aboutHeading.classList.add("aboutHeading");

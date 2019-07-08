@@ -73,6 +73,7 @@ a:hover{
     color: #640e0e;
 }
 
+/* menu */
 .menu {
     height: 800px;
     background: rgb(255, 183, 85);
@@ -84,6 +85,19 @@ a:hover{
     font-weight: 700;
     color: #fff;
     padding: 40px 20px;
+}
+
+/* contacts */
+.contacts, .about {
+    height: 600px;
+    background: rgb(255, 224, 180);
+    text-align: center;
+}
+
+.contactsHeading, .aboutHeading {
+    font-size: 2.8em;
+    font-weight: 700;
+    color: #640e0e;
 }
 
 .footer {

@@ -4,7 +4,7 @@ const contactsTab = (() => {
     const contactsHeading = document.createElement("h1");
     const contactsContent = document.createElement("div");
 
-    contacts.setAttribute("id", "contactsId")
+    contacts.setAttribute("id", "contactsId");
 
     // assign classes elements
     contacts.classList.add("contacts");
