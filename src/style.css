@@ -113,3 +113,15 @@ a:hover{
     font-weight: 700;
     color: #fff;
 }
+
+/* sticky navbar */
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 20px 20px 40px 10px;
+  }
+  
+.sticky + .content {
+padding-top: 60px;
+}

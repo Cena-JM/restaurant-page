@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import './reset.css';
 import './style.css';
+import { myFunction } from "./sticky_nav";
 import { aboutTab } from "./about";
 import { contactsTab } from "./contacts";
 import { locationsTab } from "./locations";
@@ -25,6 +26,8 @@ const render = (() => {
     const insBody = document.createElement("div");
     const bottomElement = document.createElement("footer");
     const footerHeading = document.createElement("h1");
+
+    navbar.setAttribute("id", "navbar");
 
 //     // assign classes elements
     topElement.classList.add("top-section");
@@ -121,7 +124,16 @@ const render = (() => {
         appendedElement = elementId("locations");
     });
 
+
+
+    // let navbar = document.getElementById("navbar");
+
+    // Get the offset position of the navbar
+    let sticky = navbar.offsetTop;
+    window.onscroll = function() {myFunction(sticky)};
+
     return mainElement;
 });
+
 
 render();
