@@ -125,10 +125,6 @@ const render = (() => {
     });
 
 
-
-    // let navbar = document.getElementById("navbar");
-
-    // Get the offset position of the navbar
     let sticky = navbar.offsetTop;
     window.onscroll = function() {myFunction(sticky)};
 
