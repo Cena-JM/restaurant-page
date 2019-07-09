@@ -111,6 +111,20 @@ a:hover{
     padding: 100px 10px 10px 10px;
 }
 
+.content {
+    color: rgb(36, 25, 11);
+    font-size: 1.2em;
+    line-height: 2;
+    padding-top: 20px;
+}
+
+/* about content */
+.aboutContent{
+    width: 600px;
+    margin: 0 auto;
+}
+
+/* footer */
 .footer {
     height: 500px;
     background: rgb(36, 25, 11);
@@ -132,7 +146,3 @@ a:hover{
     width: 100%;
     padding: 10px 20px 40px 10px;
   }
-  
-.sticky + .content {
-padding-top: 60px;
-}
