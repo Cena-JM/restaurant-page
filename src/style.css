@@ -97,6 +97,29 @@ a:hover{
     padding: 100px 20px 20px 20px;
 }
 
+.menuContent {
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    grid-template-rows: repeat(2, 2fr);
+}
+
+.cell {
+    border-bottom: 1px solid #7a0000;
+    text-align: left;
+    font-size: 14px;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+}
+
+.cell h3 {
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.price {
+    color: #007a06;
+}
+
 /* contacts */
 .contacts, .about, .locations {
     height: 600px;
