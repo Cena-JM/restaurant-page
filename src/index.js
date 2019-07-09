@@ -56,10 +56,10 @@ const render = (() => {
     topElement.appendChild(welcome);
 
     navbar.innerHTML =` 
-                <li><a href="#menuId" id="menu">Menu</a></li>
-                <li><a href="#locationsId" id="locations">Locations</a></li>
-                <li><a href="#aboutId" id="about">About</a></li>
-                <li><a href="#contactsId" id="contacts">Contacts</a></li>
+                <li class="t1 navLink"><a href="#menuId" id="menu">Menu</a></li>
+                <li class="navLink"><a href="#locationsId" id="locations">Locations</a></li>
+                <li class="navLink"><a href="#aboutId" id="about">About</a></li>
+                <li class="navLink"><a href="#contactsId" id="contacts">Contacts</a></li>
                 <li class="order">Order online</li>`;
     nav.appendChild(navbar);
 
